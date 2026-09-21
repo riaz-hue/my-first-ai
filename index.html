@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My First AI</title>
+    <title> GAI Assistant</title>
 </head>
 
 <body>
-    <h1>My First AI Assistant</h1>
 
-    <p>Welcome! My GAI is being built.</p>
+    <h1>My GAI Assistant</h1>
+
+    <p>Welcome! My AI is being built.</p>
 
     <input type="text" id="question" placeholder="Ask me something...">
 
-    <button onclick="askGAI()">Ask AI</button>
+    <button id="askButton">Ask AI</button>
 
     <p id="answer"></p>
 
     <script>
-        function askAI() {
+        document.getElementById("askButton").addEventListener("click", function() {
+
             const question = document.getElementById("question").value;
 
-            document.getElementById("answer").innerText =
+            document.getElementById("answer").textContent =
                 "You asked: " + question;
-        }
+
+        });
     </script>
+
 </body>
 </html>

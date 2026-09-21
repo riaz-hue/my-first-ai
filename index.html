@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> GAI Assistant</title>
+    <title>My First AI</title>
 </head>
 
 <body>
 
-    <h1>My GAI Assistant</h1>
+    <h1>My First AI Assistant</h1>
 
     <p>Welcome! My AI is being built.</p>
 
@@ -17,14 +17,12 @@
     <p id="answer"></p>
 
     <script>
-        document.getElementById("askButton").addEventListener("click", function() {
+        document.getElementById("askButton").onclick = function() {
+            var question = document.getElementById("question").value;
 
-            const question = document.getElementById("question").value;
-
-            document.getElementById("answer").textContent =
+            document.getElementById("answer").innerHTML =
                 "You asked: " + question;
-
-        });
+        };
     </script>
 
 </body>

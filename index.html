@@ -17,12 +17,44 @@
     <p id="answer"></p>
 
     <script>
-        document.getElementById("askButton").onclick = function() {
-            var question = document.getElementById("question").value;
+        document.getElementById("askButton").onclick = async function() {
 
-            document.getElementById("answer").innerHTML =
-                "You asked: " + question;
-        };
+    var question = document.getElementById("question").value.trim();
+    var answer = document.getElementById("answer");
+
+    if (!question) {
+        answer.innerHTML = "Please ask me something.";
+        return;
+    }
+
+    answer.innerHTML = "Thinking...";
+
+    try {
+
+        var response = await fetch("https://my-first-ai-backend.technologieshandei.workers.dev/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                message: question
+            })
+        });
+
+        var data = await response.json();
+
+        if (data.answer) {
+            answer.innerHTML = data.answer;
+        } else {
+            answer.innerHTML = "Sorry, I couldn't get an answer.";
+        }
+
+    } catch (error) {
+
+        answer.innerHTML = "Something went wrong connecting to my AI.";
+
+    }
+};
     </script>
 
 </body>

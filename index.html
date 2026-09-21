@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First AI</title>
+</head>
+
+<body>
+    <h1>My First AI Assistant</h1>
+
+    <p>Welcome! My GAI is being built.</p>
+
+    <input type="text" id="question" placeholder="Ask me something...">
+
+    <button onclick="askGAI()">Ask AI</button>
+
+    <p id="answer"></p>
+
+    <script>
+        function askAI() {
+            const question = document.getElementById("question").value;
+
+            document.getElementById("answer").innerText =
+                "You asked: " + question;
+        }
+    </script>
+</body>
+</html>
